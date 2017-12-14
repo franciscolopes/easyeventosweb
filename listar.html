@@ -61,7 +61,7 @@ app.controller('CompanyCtrl', function($scope, $http) {
 			</thead>
 			<tbody>
               <tr ng-repeat="x in companies">
-						<td>{x.nome}</td>
+						<td>{{x.nome}}</td>
 						<td>algum valor aqui</td>
 						<td>algo aqui </td>						
 						<td><a href="compra/CompraDetalhes?codCompra=${x.codCompra}" class="btn btn-primary btn-xs">Ver detalhes</a></td>
