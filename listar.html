@@ -19,7 +19,7 @@
 <script>
 var app = angular.module('helloApp', []);
 app.controller('CompanyCtrl', function($scope, $http) {
-	  $http.get("http://127.0.0.1:8080/LocarWeb/Anuncios/ListAll")
+	  $http.get("http://127.0.0.1:8080/usuarios")
 	  .then(function (response) {$scope.companies = response.data;});
 
 	  $scope.greaterThan = function(prop, val){
@@ -31,14 +31,6 @@ app.controller('CompanyCtrl', function($scope, $http) {
 	  
 });
 </script>
-
-
-
-
-
-
-
-
 
 
 
@@ -69,8 +61,7 @@ app.controller('CompanyCtrl', function($scope, $http) {
 			</thead>
 			<tbody>
               <tr ng-repeat="x in companies">
-						<td>${x.nome}</td>
-
+						<td>{x.nome}</td>
 						<td>algum valor aqui</td>
 						<td>algo aqui </td>						
 						<td><a href="compra/CompraDetalhes?codCompra=${x.codCompra}" class="btn btn-primary btn-xs">Ver detalhes</a></td>
