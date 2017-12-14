@@ -1,0 +1,99 @@
+<html ng-app="helloApp">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sistema de Eventos</title>
+<script src="resources/js/angular.min.js"></script>
+<script src="resources/js/jquery-3.2.1.min.js"></script>
+<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<link href="resources/css/sticky-footer-navbar.css" rel="stylesheet">
+</head>
+
+
+
+<script>
+var app = angular.module('helloApp', []);
+app.controller('CompanyCtrl', function($scope, $http) {
+	  $http.get("http://10.10.20.206:8080/usuarios").then(function (response) {$scope.companies = response.data;});
+
+	  $scope.greaterThan = function(prop, val){
+		    return function(item){
+		      return item[prop] > val;
+		    }
+		}	  
+	  
+	  
+});
+</script>
+
+
+
+<body ng-controller="CompanyCtrl">
+<div ng-include="'resources/templates/navbar.html'"></div>	
+	<!-- Begin page content -->
+	<div class="container">
+		<div class="page-header">
+			<h1>Cadastro de Usuario</h1>
+		</div>
+
+		<form name="myform" class="form-horizontal" >
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<!-- 
+					<ul>						
+						<c:forEach items="${erros}" var="msg">
+							<li class="erro">${msg}</li>
+						</c:forEach>
+					</ul>
+					 -->
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="desconto">Nome:</label>
+				<div class="col-sm-5">
+					<input type="text" name="nome" id="nome" value="{{x.nome}}"
+						required="required" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="email">email:</label>
+				<div class="col-sm-5">
+					<input type="text" name="email" id="email"
+						value="{{x.email}}" required="required"
+						class="form-control" />
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="cpf">cpf:</label>
+				<div class="col-sm-5">
+					<input type="text" name="cpf" id="cpf" value="{{x.cpf}}"
+						required="required" class="form-control" />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label" for="categoria">categoria:</label>
+				<div class="col-sm-5">
+					<input type="text" name="cpf" id="categoria" value="{{x.categoria}}"
+						required="required" class="form-control" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Inserir</button>
+					
+					<a href="#" onclick="location.href='listar-usuario.html'"
+						class="btn btn-default">Voltar</a>
+				</div>
+			</div>
+		</form>
+		
+	</div>
+<div ng-include="'resources/templates/rodape.html'"></div>
+
+	<!-- Core JS -->
+	<script	src="resources/js/bootstrap.min.js"></script>
+</body>
+</html>
