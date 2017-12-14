@@ -4,7 +4,7 @@
 <title>Sistema de Eventos</title>
 <link rel="stylesheet" href="resources/css/style.css">
 
-
+<script src="resources/js/w3.js"></script>
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="resources/css/sticky-footer-navbar.css" rel="stylesheet">
@@ -13,9 +13,14 @@
 
 <body>
 
-   <div include-html="resources/templates/navbar.html"></div>
 
-	<!-- Begin page content -->
+<div w3-include-html="resources/templates/navbar.html"></div>
+	<!-- Begin page content
+	
+   <div w3-include-html="resources/templates/navbar.html"></div>
+	
+	
+	 -->
 	<form action="Logout" method="POST">
 
 	</form>
@@ -29,6 +34,6 @@
 	
 
 	</div>
-	<div include-html="resources/templates/rodape.html"></div>
+	<div w3-include-html="resources/templates/rodape.html"></div>
 </body>
 </html>
